@@ -1,0 +1,25 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+#RewriteCond %{SERVER_PORT} 80 
+#RewriteRule ^(.*)$ http://www.siteadi.com/$1 [R,L]
+
+#RewriteCond %{HTTP_HOST} ^site_adi.com. [NC]
+#RewriteRule ^(.*)$ http://www.siteadi.com/$ [L,R=301,NC]
+
+#Seo url oluşturma
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+RewriteRule ^fatura-giris-sayfasi(.*)$ fatura_girme.php [L,NC]
+RewriteRule ^musteri-sayfasi(.*)$ musteriler.php [L,NC]
+RewriteRule ^fatura-duzenleme-sayfasi(.*)$ fatura_goruntuleme.php [L,NC]
+RewriteRule ^main-index(.*)$ anasayfa.php [L,NC]
+RewriteRule ^admin-panel(.*)$ admin.php [L,NC]
+RewriteRule ^giris-panel(.*)$ login.php [L,NC]
+
+php_value max_input_vars 20000
+
+#404 hata sayfası yönlendirme kodu
+#ErrorDocument 404 
